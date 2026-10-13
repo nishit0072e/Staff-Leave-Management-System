@@ -1,0 +1,178 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Staff Dashboard | SLMS</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<link rel="stylesheet"
+href="{% static 'css/staff.css' %}">
+
+</head>
+
+<body>
+
+<div class="blob blob1"></div>
+<div class="blob blob2"></div>
+
+<div class="container">
+
+<div class="card">
+
+    <!-- LEFT PANEL -->
+
+    <div class="left" data-aos="fade-right">
+
+        <div class="profile">
+
+            <i class="fas fa-user-circle"
+               style="font-size:120px;color:#0071e3;"
+               data-aos="zoom-in"
+               data-aos-delay="200">
+            </i>
+
+            <h2 data-aos="fade-up" data-aos-delay="300">
+                {{ user.username }}
+            </h2>
+
+            <p data-aos="fade-up" data-aos-delay="400">
+                Staff Member
+            </p>
+
+        </div>
+
+        <div class="stats">
+
+            <div class="stat"
+                 data-aos="flip-left"
+                 data-aos-delay="100">
+
+                <h3>{{ total_leaves }}</h3>
+                <p>Total Leaves</p>
+
+            </div>
+
+            <div class="stat"
+                 data-aos="flip-left"
+                 data-aos-delay="200">
+
+                <h3>{{ pending_leaves }}</h3>
+                <p>Pending</p>
+
+            </div>
+
+            <div class="stat"
+                 data-aos="flip-left"
+                 data-aos-delay="300">
+
+                <h3>{{ approved_leaves }}</h3>
+                <p>Approved</p>
+
+            </div>
+
+            <div class="stat"
+                 data-aos="flip-left"
+                 data-aos-delay="400">
+
+                <h3>{{ rejected_leaves }}</h3>
+                <p>Rejected</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- RIGHT PANEL -->
+
+    <div class="right" data-aos="fade-left">
+
+        <div class="heading">
+
+            <h1
+                data-aos="zoom-in-up"
+                data-aos-delay="200">
+                Welcome Back 👋
+            </h1>
+
+            <p
+               data-aos="fade-up"
+               data-aos-delay="350">
+               Manage your leave requests easily.
+            </p>
+
+        </div>
+
+        <div class="cards">
+
+            <div class="action-card"
+                 data-aos="zoom-in-up"
+                 data-aos-delay="100">
+
+                <i class="fas fa-file-circle-plus"></i>
+
+                <h3>Apply Leave</h3>
+
+                <p>
+                    Submit a new leave request.
+                </p>
+
+                <a href="{% url 'apply_leave' %}"
+                   class="btn">
+                    Apply Now
+                </a>
+
+            </div>
+
+            <div class="action-card"
+                 data-aos="zoom-in-up"
+                 data-aos-delay="250">
+
+                <i class="fas fa-history"></i>
+
+                <h3>Leave History</h3>
+
+                <p>
+                    View all your previous leave records.
+                </p>
+
+                <a href="{% url 'my_leaves' %}"
+                   class="btn">
+                    View History
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="logout"
+             data-aos="fade-up"
+             data-aos-delay="500">
+
+            <a href="{% url 'logout' %}">
+                Logout
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script src="{% static 'js/staff.js' %}"></script>
+
+</body>
+</html>

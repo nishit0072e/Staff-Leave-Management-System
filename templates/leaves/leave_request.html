@@ -1,0 +1,130 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Leave Requests | SLMS</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="{% static 'css/leave_request.css' %}">
+
+</head>
+<body>
+
+<div class="blob blob1"></div>
+<div class="blob blob2"></div>
+
+
+<div class="container">
+
+<h1>📋 Leave Requests</h1>
+
+<div class="card">
+
+    <table>
+
+        <tr>
+            <th>User Name</th>
+            <th>Leave Type</th>
+            <th>Email</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Duration</th>
+            <th>Session</th>
+            <th>Reason</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+
+        {% for i in leave_list %}
+
+        <tr>
+
+            <td>{{ i.username }}</td>
+            <td>{{ i.leave_type }}</td>
+            <td>{{ i.email }}</td>
+            <td>{{ i.start_date }}</td>
+            <td>{{ i.end_date }}</td>
+            <td>{{i.duration}}</td>
+            <td>
+                {% if i.duration == 'half' %}
+                    {{ i.half_day_session|title }}
+                {% else %}
+        -
+                {% endif %}
+            </td>
+            <td>{{ i.reason }}</td>
+
+            <td>
+
+                {% if i.status == 'pending' %}
+                <span class="pending">
+                    ⏳ Pending
+                </span>
+
+                {% elif i.status == 'approved' %}
+                <span class="approved">
+                    ✅ Approved
+                </span>
+
+                {% elif i.status == 'rejected' %}
+                <span class="rejected">
+                    ❌ Rejected
+                </span>
+                {% endif %}
+
+            </td>
+
+            <td>
+
+                <div class="action-buttons">
+
+                    <a href="{% url 'approve_leave' i.id %}"
+                       class="approve-btn"
+                       onclick="return confirm('Are you sure you want to approve this leave request?')">
+                       ✅ Approve
+                    </a>
+
+                    <a href="{% url 'reject_leave' i.id %}"
+                       class="reject-btn"
+                       onclick="return confirm('Are you sure you want to reject this leave request?')">
+                       ❌ Reject
+                    </a>
+
+                </div>
+
+            </td>
+
+        </tr>
+
+        {% empty %}
+
+        <tr>
+            <td colspan="8" class="no-data">
+                No Leave Requests Found
+            </td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+    <a href="{% url 'admin_dashboard' %}"
+       class="back-btn">
+       ← Back to Dashboard
+    </a>
+
+</div>
+
+</div>
+
+<script src="{% static 'js/leave_request.js' %}"></script>
+
+</body>
+</html>

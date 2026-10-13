@@ -1,0 +1,119 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SLMS | Staff Leave Management System</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+<body>
+
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+
+    <div class="container">
+        <div class="home-card">
+
+            <div class="left" data-aos="fade-right">
+                <div class="logo">
+                    SLMS
+                </div>
+
+                <div class="heading">
+                    Staff Leave Management <br> System
+                </div>
+
+                <div class="description">
+                    A powerful leave management platform designed to streamline
+                    leave requests, approvals, staff tracking, and administrative
+                    workflows within your organization.
+                </div>
+
+                <div class="stats">
+                    <div class="stat-card" data-aos="zoom-in" data-aos-delay="100">
+                        <h3>100+</h3>
+                        <p>Employees</p>
+                    </div>
+
+                    <div class="stat-card" data-aos="zoom-in" data-aos-delay="200">
+                        <h3>500+</h3>
+                        <p>Requests</p>
+                    </div>
+
+                    <div class="stat-card" data-aos="zoom-in" data-aos-delay="300">
+                        <h3>99%</h3>
+                        <p>Accuracy</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right" data-aos="fade-left">
+                <div class="badge">
+                    🚀 Dhee Coding Lab Project
+                </div>
+
+                <h1>Welcome to SLMS</h1>
+
+                <p>
+                    Simplify leave approvals, employee leave tracking,
+                    and administration with a secure role-based leave
+                    management system built using Django.
+                </p>
+
+                <div class="features">
+                    <div class="feature">
+                        <i class="fas fa-user-shield"></i>
+                        <h4>Role Based Access</h4>
+                        <p>Separate Admin and Staff dashboards.</p>
+                    </div>
+
+                    <div class="feature">
+                        <i class="fas fa-file-signature"></i>
+                        <h4>Leave Requests</h4>
+                        <p>Easy leave application and approval.</p>
+                    </div>
+
+                    <div class="feature">
+                        <i class="fas fa-chart-line"></i>
+                        <h4>Analytics</h4>
+                        <p>Track employee leave records.</p>
+                    </div>
+
+                    <div class="feature">
+                        <i class="fas fa-lock"></i>
+                        <h4>Secure</h4>
+                        <p>Protected authentication system.</p>
+                    </div>
+                </div>
+
+                <div class="buttons">
+                    <a href="{% url 'login' %}" class="btn login-btn">
+                        <i class="fas fa-right-to-bracket"></i> Login
+                    </a>
+                    <a href="{% url 'register' %}" class="btn register-btn">
+                        <i class="fas fa-user-plus"></i> Register
+                    </a>
+                </div>
+
+                <div class="footer">
+                    © 2026 Dhee Coding Lab (DCL) | All Rights Reserved
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="{% static 'js/home.js' %}"></script>
+
+</body>
+</html>

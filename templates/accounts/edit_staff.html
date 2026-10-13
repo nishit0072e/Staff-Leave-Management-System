@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Staff | SLMS</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/edit_staff.css' %}">
+</head>
+<body>
+
+    <div class="container">
+        <div class="card">
+
+            <div class="left">
+                <h1>SLMS</h1>
+                <h2>Edit Staff Details</h2>
+            </div>
+
+            <div class="right">
+                <h2>Edit Staff</h2>
+
+                <form method="POST">
+                    {% csrf_token %}
+
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" name="username" value="{{ staff.username }}" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" name="email" value="{{ staff.email }}" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" id="password" name="password" placeholder="Leave blank to keep current password">
+                    </div>
+
+                    <button type="submit">Update Staff</button>
+                </form>
+
+                <a href="{% url 'manage_staff' %}" class="back">
+                    Back to Manage Staff
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="{% static 'js/edit_staff.js' %}"></script>
+
+</body>
+</html>

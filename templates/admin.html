@@ -1,0 +1,178 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Dashboard | SLMS</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<link rel="stylesheet"
+href="{% static 'css/admin.css' %}">
+
+</head>
+
+<body>
+
+<!-- Sidebar -->
+
+<div class="sidebar">
+
+    <div class="logo">
+        <h2>SLMS</h2>
+        <p>Admin Panel</p>
+    </div>
+
+    <div class="menu">
+
+        <a href="#">
+            <i class="fas fa-house"></i>
+            <span>Dashboard</span>
+        </a>
+
+        <a href="{% url 'leave_request' %}">
+            <i class="fas fa-file-signature"></i>
+            <span>Leave Requests</span>
+        </a>
+
+        <a href="{% url 'manage_staff' %}">
+            <i class="fas fa-users"></i>
+            <span>Manage Staff</span>
+        </a>
+
+        <a href="{% url 'reports' %}">
+            <i class="fas fa-chart-column"></i>
+            <span>Reports</span>
+        </a>
+
+        <a href="{% url 'logout' %}">
+            <i class="fas fa-right-from-bracket"></i>
+            <span>Logout</span>
+        </a>
+
+    </div>
+
+</div>
+
+<!-- Main Content -->
+
+<div class="main">
+
+    <div class="header" data-aos="fade-down">
+
+        <div class="header-text">
+            <h1>Welcome Admin 👋</h1>
+            <p>Manage leave requests and staff activities.</p>
+        </div>
+
+        <div class="admin-box">
+            <i class="fas fa-user-shield"></i>
+            {{ user.username }}
+        </div>
+
+    </div>
+
+    <div class="stats">
+
+        <div class="stat-card" data-aos="zoom-in">
+            <div class="stat-top">
+                <h4>Total Requests</h4>
+                <i class="fas fa-file-circle-check"></i>
+            </div>
+            <h2>{{ total_leaves }}</h2>
+            <p>All leave requests</p>
+        </div>
+
+        <div class="stat-card" data-aos="zoom-in" data-aos-delay="100">
+            <div class="stat-top">
+                <h4>Pending</h4>
+                <i class="fas fa-clock"></i>
+            </div>
+            <h2>{{ pending_leaves }}</h2>
+            <p>Awaiting approval</p>
+        </div>
+
+        <div class="stat-card" data-aos="zoom-in" data-aos-delay="200">
+            <div class="stat-top">
+                <h4>Approved</h4>
+                <i class="fas fa-circle-check"></i>
+            </div>
+            <h2>{{ approved_leaves }}</h2>
+            <p>Approved leave requests</p>
+        </div>
+
+        <div class="stat-card" data-aos="zoom-in" data-aos-delay="300">
+            <div class="stat-top">
+                <h4>Rejected</h4>
+                <i class="fas fa-circle-xmark"></i>
+            </div>
+            <h2>{{ rejected_leaves }}</h2>
+            <p>Rejected leave requests</p>
+        </div>
+
+        <div class="stat-card" data-aos="zoom-in" data-aos-delay="400">
+            <div class="stat-top">
+                <h4>Staff Users</h4>
+                <i class="fas fa-users"></i>
+            </div>
+            <h2>{{ total_staff }}</h2>
+            <p>Registered staff</p>
+        </div>
+
+    </div>
+
+    <div class="cards">
+
+        <div class="card" data-aos="fade-up">
+            <i class="fas fa-file-signature"></i>
+            <h3>Leave Requests</h3>
+            <p>
+                Review, approve, and reject leave applications submitted by staff.
+            </p>
+
+            <a href="{% url 'leave_request' %}" class="btn">
+                Open Requests
+            </a>
+        </div>
+
+        <div class="card" data-aos="fade-up" data-aos-delay="100">
+            <i class="fas fa-users"></i>
+            <h3>Staff Management</h3>
+            <p>
+                View and manage all registered staff members in the system.
+            </p>
+
+            <a href="{% url 'manage_staff' %}" class="btn">
+                Manage Staff
+            </a>
+        </div>
+
+        <div class="card" data-aos="fade-up" data-aos-delay="200">
+            <i class="fas fa-chart-pie"></i>
+            <h3>Reports & Analytics</h3>
+            <p>
+                Analyze leave statistics and generate management reports.
+            </p>
+
+            <a href="{% url 'reports' %}" class="btn">
+                View Reports
+            </a>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script src="{% static 'js/admin.js' %}"></script>
+
+</body>
+</html>
